@@ -54,13 +54,46 @@ def concatenate_html_parts(output_dir=OUTPUT_DIR, final_filename="index.html"):
 # ============================
 # HELPER FUNCTIONS
 # ============================
+# Remove Markdown code fences if present
+def strip_code_fence(text: str) -> str:
+    """
+    Remove leading/trailing Markdown code fences and return inner content.
+    Handles ```html, ```html\n, ``` (any language) and also single backtick blocks.
+    If no fence found, returns original text.
+    """
+    if not text:
+        return text
+
+    text = text.strip()
+
+    # 1) Remove triple-backtick fence with optional language tag
+    m = re.search(r"^```[ \t]*([a-zA-Z0-9_-]+)?\n(.*)\n```$", text, flags=re.DOTALL)
+    if m:
+        return m.group(2).strip()
+
+    # 2) If fences but not closing fence on same string, remove leading/trailing backticks
+    #    (covers cases like "```html\n...html..." with no trailing fence)
+    text = re.sub(r"^```[^\n]*\n", "", text, count=1)
+    text = re.sub(r"\n```$", "", text, count=1)
+
+    # 3) remove single-line fence: ```<lang>...``` or inline backticks
+    text = re.sub(r"^`{3,}\s*", "", text)
+    text = re.sub(r"\s*`{3,}$", "", text)
+
+    # 4) Also remove a single pair of backticks around content
+    if text.startswith("`") and text.endswith("`"):
+        text = text[1:-1]
+
+    return text.strip()
+# Remove unwanted mentions of 'Part 1', 'Part 2', 'भाग 1', 'भाग 2' etc.
+
 def clean_output(text: str) -> str:
     """
     Remove unwanted mentions of 'Part 1', 'Part 2', 'भाग 1', 'भाग 2' etc.
     """
     import re
     # Remove English "Part X"
-    text = re.sub(r"Part\s*\d+", "", text, flags=re.IGNORECASE)
+    text = re.sub(r"Part\s*\d+", ``` , text, flags=re.IGNORECASE)
     # Remove Hindi "भाग X"
     text = re.sub(r"भाग\s*\d+", "", text)
     return text.strip()
@@ -77,6 +110,8 @@ def save_output(text, filename, output_dir=OUTPUT_DIR):
     with open(path, "w", encoding="utf-8") as f:
         f.write(text)
     return path
+# ✅ Image download function using DuckDuckGo Images
+
 
 def download_image(query, filename, output_dir=OUTPUT_DIR):
     os.makedirs(output_dir, exist_ok=True)
@@ -105,7 +140,7 @@ def download_image(query, filename, output_dir=OUTPUT_DIR):
         print(f"⚠️ Error downloading {query}: {e}")
         return None
 
-
+# ✅ Process image_prompt.txt to extract URLs and download images
 def process_image_prompt(file_path):
     """Read image_prompt.txt and download images for policy, company, product."""
     with open(file_path, "r", encoding="utf-8") as f:
@@ -136,6 +171,7 @@ state = None   # "html" or "image"
 # --- Step 1: Run PROMPT_FILE → Part1.html ---
 print("🔄 Running PROMPT_FILE...")
 res1 = call_gemini_chat(prompt1)
+res1 = strip_code_fence(res1)
 res1 = clean_output(res1)
 file1 = save_output(res1, f"Part{html_counter}.html")
 print("💾 Saved:", file1)
@@ -150,6 +186,7 @@ for msg in user_messages:
 
     if msg == "next part" and state == "html":
         res = call_gemini_chat("Continue with next part of the report.")
+        res = strip_code_fence(res)
         res = clean_output(res)
         filename = f"Part{html_counter}.html"
         file = save_output(res, filename)
@@ -168,6 +205,7 @@ for msg in user_messages:
 
     elif msg == "next part" and state == "image":
         res = call_gemini_chat("Continue with CSS styling output.")
+        
         file = save_output(res, "style.css")
         print("💾 Saved:", file)
 # ✅ Concatenate only once, after the loop finishes
@@ -184,12 +222,21 @@ def upload_to_github_and_netlify():
         # GitHub push
         subprocess.run(["git", "-C", repo_path, "add", "."], check=True)
         subprocess.run(["git", "-C", repo_path, "commit", "-m", commit_msg], check=True)
-        subprocess.run(["git", "-C", repo_path, "push"], check=True)
+
+        # First try normal push
+        result = subprocess.run(["git", "-C", repo_path, "push"], capture_output=True, text=True)
+
+        # If rejected, force push
+        if "rejected" in result.stderr:
+            print("⚠️ Normal push failed, trying force push...")
+            subprocess.run(["git", "-C", repo_path, "push", "--force"], check=True)
+
         print("✅ Uploaded to GitHub")
 
-        # Netlify deploy (requires Netlify CLI: `npm install -g netlify-cli`)
+        # Netlify deploy
         subprocess.run(["netlify", "deploy", "--dir", repo_path, "--prod"], check=True)
         print("🌐 Site deployed to Netlify")
+
     except Exception as e:
         print(f"⚠️ Upload failed: {e}")
 
