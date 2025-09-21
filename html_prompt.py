@@ -4,7 +4,7 @@ import requests
 import google.genai as genai
 from ddgs import DDGS  # ✅ for image search
 import time
-
+import subprocess
 # ============================
 # CONFIGURATION
 # ============================
@@ -22,7 +22,7 @@ client = genai.Client(api_key=API_KEY)
 chat = client.chats.create(
     model="gemini-2.5-flash"
 )
-def concatenate_html_parts(output_dir=OUTPUT_DIR, final_filename="final_report.html"):
+def concatenate_html_parts(output_dir=OUTPUT_DIR, final_filename="index.html"):
     """Concatenate all Part*.html files into one single HTML file."""
     files = sorted(
         [f for f in os.listdir(output_dir) if f.startswith("Part") and f.endswith(".html")],
@@ -172,7 +172,7 @@ for msg in user_messages:
         print("💾 Saved:", file)
 # ✅ Concatenate only once, after the loop finishes
 concatenate_html_parts()
-import subprocess
+
 
 def upload_to_github_and_netlify():
     print("\n🚀 Uploading to GitHub + Netlify...")

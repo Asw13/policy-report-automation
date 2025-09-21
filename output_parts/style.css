@@ -1,61 +1,49 @@
 ```css
 /* style.css */
 
-/* General Body Styles */
+/* General Body Styling */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    background-color: #f4f7f6;
+    background-color: #f8f8f8;
     color: #333;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-/* Main Content Wrapper (if used, though HTML has direct content) */
-/* For blog readiness, assume content is directly in body or a conceptual main wrapper */
-.container {
-    max-width: 960px;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 30px 40px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 /* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: #0056b3; /* A professional blue */
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+}
+
 h1 {
-    font-family: 'Georgia', serif;
     font-size: 2.5em;
-    color: #0056b3;
     text-align: center;
-    margin-bottom: 40px;
-    padding-bottom: 15px;
+    color: #003366;
     border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
 }
 
 h2 {
     font-size: 2em;
-    color: #004085;
-    margin-top: 35px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #e9ecef;
-    padding-bottom: 8px;
+    color: #004080;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-top: 40px;
 }
 
 h3 {
     font-size: 1.5em;
     color: #0056b3;
-    margin-top: 25px;
-    margin-bottom: 15px;
-}
-
-h4 {
-    font-size: 1.2em;
-    color: #343a40;
-    margin-top: 20px;
-    margin-bottom: 10px;
 }
 
 /* Paragraphs */
@@ -78,29 +66,36 @@ ul li, ol li {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin-bottom: 1.5em;
     background-color: #fff;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    overflow: hidden; /* Ensures border-radius applies to corners */
 }
 
-table th, table td {
-    border: 1px solid #ddd;
-    padding: 12px 15px;
-    text-align: left;
-}
-
-table th {
+table thead {
     background-color: #e9ecef;
-    font-weight: bold;
     color: #495057;
 }
 
-table tr:nth-child(even) {
-    background-color: #f8f9fa;
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
 }
 
-table tr:hover {
-    background-color: #f1f1f1;
+table th {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tbody tr:hover {
+    background-color: #e6f7ff;
 }
 
 /* Images */
@@ -108,9 +103,9 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 30px auto;
-    border-radius: 5px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 2em auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Links */
@@ -124,13 +119,62 @@ a:hover {
     color: #0056b3;
 }
 
-/* Reference List Styling */
-h4 + ol { /* Style for reference lists following an h4 */
+/* References Section */
+ol.references {
     font-size: 0.9em;
     color: #555;
-    padding-left: 20px;
+    margin-top: 2em;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 1em;
 }
-h4 + ol li {
-    margin-bottom: 0.3em;
+
+ol.references li {
+    margin-bottom: 0.8em;
+}
+
+/* Specific styling for estimated values */
+p strong, li strong {
+    color: #c0392b; /* A distinct color for emphasis */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.6em;
+    }
+
+    h3 {
+        font-size: 1.3em;
+    }
+
+    table th, table td {
+        padding: 8px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.4em;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+
+    table {
+        font-size: 0.9em;
+    }
 }
 ```
