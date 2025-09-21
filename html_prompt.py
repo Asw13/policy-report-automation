@@ -93,7 +93,7 @@ def clean_output(text: str) -> str:
     """
     import re
     # Remove English "Part X"
-    text = re.sub(r"Part\s*\d+", ``` , text, flags=re.IGNORECASE)
+    text = re.sub(r"Part\s*\d+", "" , text, flags=re.IGNORECASE)
     # Remove Hindi "भाग X"
     text = re.sub(r"भाग\s*\d+", "", text)
     return text.strip()
