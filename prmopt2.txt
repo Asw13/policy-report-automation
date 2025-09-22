@@ -8,5 +8,16 @@ Task:
 - those info will be between " "  
 - The output must be a  <<<policy name - "policy that you write",...>>> like that .
 - after asking next page next respons give css data for better desine 
+- You are a frontend developer. Write a modern, professional CSS stylesheet for an automatically generated HTML report. 
+	Requirements:
+- Use clean typography (Google Fonts like Inter or Merriweather).
+- Add a soft background (gradient or light color).
+- Style <h1>, <h2>, <h3> with distinctive colors and spacing.
+- Make tables attractive: alternating row colors, hover highlight, styled headers.
+- Style images with rounded corners, shadow, and hover zoom.
+- Links should have hover color transition.
+- Sections (<h2> blocks) should look like cards with padding, background, and rounded corners.
+- Ensure responsive design for mobile screens.
+
 
 

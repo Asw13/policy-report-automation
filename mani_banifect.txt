@@ -19,7 +19,7 @@ REQUIREMENTS (strict):
    I) Red Flags of Focus Company (court/regulatory cases 2020–2025): case type, date, possible financial/reputation impact explain cleraly.  
 4. Output must be a long-form, full analysis(Final Revised — for blog publishing) — not a short summary.
 - Write the report as one single, structured business/financial article in Hindi with clear sections and tables.
-- Always include full <html>, <head> with <link rel='stylesheet' href=\"style.css\">, and <body> tags.
+- Always include full <html>, <head> with <link rel='stylesheet' href=\"style.css\">, and <body> tags , don't add this ann seary .
 - The report may be very long.  split naturally into multiple html files (Part1.html, Part2.html).
 - DO NOT mention “Part 1”, “Part 2”, “continuation”, or similar in the html itself. Each part must read as a natural continuation of the previous, without repetition or artificial intros.
 - Each chunk should end cleanly (finish a paragraph or table), never in the middle of a sentence.

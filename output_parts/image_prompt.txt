@@ -1,1 +1,218 @@
-policy name - "बड़े पैमाने पर इलेक्ट्रॉनिक्स विनिर्माण के लिए उत्पादन-लिंक्ड प्रोत्साहन (PLI) योजना", company name - "ऑप्टिमस इन्फ्राकॉम लिमिटेड", company product name - "मोबाइल फोन"
+<<<policy name - "बड़े पैमाने पर इलेक्ट्रॉनिक्स विनिर्माण के लिए उत्पादन-लिंक्ड प्रोत्साहन (PLI) योजना", company name - "ऑप्टिमस इन्फ्राकॉम लिमिटेड", company product name - "मोबाइल फोन और स्मार्ट वियरेबल्स">>>
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #0056b3; /* A deep blue for headings */
+    --secondary-color: #28a745; /* A vibrant green for highlights */
+    --text-color: #333;
+    --light-gray: #f8f9fa;
+    --medium-gray: #e9ecef;
+    --dark-gray: #6c757d;
+    --card-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f0f2f5 0%, #e0e5ec 100%); /* Soft gradient background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.report-container {
+    max-width: 900px;
+    width: 100%;
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    box-shadow: 0 8px 25px var(--shadow-color);
+    border-radius: var(--border-radius-md);
+    margin: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+h1, h2, h3 {
+    font-family: 'Merriweather', serif;
+    color: var(--primary-color);
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #004085; /* A slightly darker blue for main title */
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--medium-gray);
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--medium-gray);
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+    color: var(--secondary-color);
+    margin-top: 1.8rem;
+    margin-bottom: 0.6em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+ul {
+    margin-bottom: 1em;
+    padding-left: 25px;
+}
+
+li {
+    margin-bottom: 0.5em;
+}
+
+/* Section as Cards */
+.report-container > h2:not(:first-of-type) + * {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.report-container > h2:not(:first-of-type) + *:hover {
+    transform: translateY(-3px);
+}
+
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.95em;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    border-radius: var(--border-radius-sm);
+    overflow: hidden; /* Ensures rounded corners apply to content */
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--medium-gray);
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+tr:nth-child(even) {
+    background-color: var(--light-gray); /* Alternating row colors */
+}
+
+tr:hover {
+    background-color: var(--medium-gray); /* Hover highlight */
+    transition: background-color 0.3s ease;
+}
+
+/* Image Styling */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 2rem auto;
+    border-radius: var(--border-radius-md); /* Rounded corners */
+    box-shadow: 0 6px 20px var(--shadow-color); /* Shadow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+}
+
+img:hover {
+    transform: scale(1.02); /* Hover zoom effect */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Link Styling */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+ol {
+    padding-left: 25px;
+    margin-bottom: 1.5em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .report-container {
+        padding: 1.5rem;
+        margin: 1rem 0.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    th, td {
+        padding: 10px 12px;
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 480px) {
+    .report-container {
+        padding: 1rem;
+        margin: 0.5rem;
+        border-radius: var(--border-radius-sm);
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    img {
+        border-radius: var(--border-radius-sm);
+    }
+}
+```
