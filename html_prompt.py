@@ -205,7 +205,7 @@ for msg in user_messages:
 
     elif msg == "next part" and state == "image":
         res = call_gemini_chat("Continue with CSS styling output.")
-        
+        res = strip_code_fence(res)
         file = save_output(res, "style.css")
         print("💾 Saved:", file)
 # ✅ Concatenate only once, after the loop finishes

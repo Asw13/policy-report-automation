@@ -1,83 +1,87 @@
-<<<policy name - "बड़े पैमाने पर इलेक्ट्रॉनिक्स विनिर्माण के लिए उत्पादन-लिंक्ड प्रोत्साहन (PLI) योजना", company name - "ऑप्टिमस इन्फ्राकॉम लिमिटेड", company product name - "मोबाइल फोन और स्मार्ट वियरेबल्स">>>
+<<<policy name - "बड़े पैमाने पर इलेक्ट्रॉनिक्स विनिर्माण के लिए उत्पादन संबद्ध प्रोत्साहन (PLI) योजना", company name - "सिरमा एसजीएस टेक्नोलॉजी लिमिटेड", company product name - "प्रिंटेड सर्किट बोर्ड असेंबली (PCBA)">>>
 
 ```css
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap');
 
 :root {
-    --primary-color: #0056b3; /* A deep blue for headings */
-    --secondary-color: #28a745; /* A vibrant green for highlights */
+    --primary-color: #0056b3; /* A deep blue for emphasis */
+    --secondary-color: #28a745; /* A vibrant green for accents */
     --text-color: #333;
-    --light-gray: #f8f9fa;
-    --medium-gray: #e9ecef;
-    --dark-gray: #6c757d;
-    --card-bg: #ffffff;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --border-radius-sm: 8px;
-    --border-radius-md: 12px;
+    --light-text-color: #555;
+    --background-light: #f8f9fa;
+    --background-card: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --hover-color: #007bff;
 }
 
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    color: var(--text-color);
     margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #f0f2f5 0%, #e0e5ec 100%); /* Soft gradient background */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.report-container {
-    max-width: 900px;
-    width: 100%;
-    background-color: var(--card-bg);
-    padding: 2.5rem;
-    box-shadow: 0 8px 25px var(--shadow-color);
-    border-radius: var(--border-radius-md);
-    margin: 2rem 1rem;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--background-light) 0%, #e9ecef 100%);
+    color: var(--text-color);
     box-sizing: border-box;
 }
 
-h1, h2, h3 {
-    font-family: 'Merriweather', serif;
-    color: var(--primary-color);
-    margin-top: 1.5em;
-    margin-bottom: 0.8em;
-    line-height: 1.2;
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: transparent; /* Main wrapper itself doesn't need a background */
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: var(--background-card);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color);
 }
 
 h1 {
-    font-size: 2.5rem;
-    text-align: center;
-    color: #004085; /* A slightly darker blue for main title */
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid var(--medium-gray);
+    font-family: 'Merriweather', serif;
+    color: var(--primary-color);
+    font-size: 2.8em;
+    margin-bottom: 0.5em;
+    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 10px;
+    display: inline-block; /* To make border-bottom fit content */
 }
 
 h2 {
-    font-size: 1.8rem;
+    font-family: 'Merriweather', serif;
     color: var(--primary-color);
-    border-bottom: 1px solid var(--medium-gray);
-    padding-bottom: 0.5rem;
-    margin-top: 2rem;
+    font-size: 2em;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
 }
 
 h3 {
-    font-size: 1.4rem;
+    font-family: 'Merriweather', serif;
     color: var(--secondary-color);
-    margin-top: 1.8rem;
-    margin-bottom: 0.6em;
+    font-size: 1.5em;
+    margin-top: 30px;
+    margin-bottom: 15px;
 }
 
-p {
-    margin-bottom: 1em;
+section {
+    background-color: var(--background-card);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color);
 }
 
-ul {
+p, ul, ol {
     margin-bottom: 1em;
+    color: var(--light-text-color);
+}
+
+ul, ol {
     padding-left: 25px;
 }
 
@@ -85,72 +89,64 @@ li {
     margin-bottom: 0.5em;
 }
 
-/* Section as Cards */
-.report-container > h2:not(:first-of-type) + * {
-    background-color: var(--card-bg);
-    padding: 1.5rem;
-    border-radius: var(--border-radius-md);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    margin-bottom: 2rem;
-    transition: transform 0.2s ease-in-out;
-}
-
-.report-container > h2:not(:first-of-type) + *:hover {
-    transform: translateY(-3px);
-}
-
-
-/* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 1.5em 0;
-    font-size: 0.95em;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    border-radius: var(--border-radius-sm);
+    margin: 25px 0;
+    font-size: 0.9em;
+    text-align: left;
+    box-shadow: 0 2px 8px var(--shadow-color);
+    border-radius: 8px;
     overflow: hidden; /* Ensures rounded corners apply to content */
 }
 
-th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid var(--medium-gray);
-}
-
-th {
+table thead tr {
     background-color: var(--primary-color);
-    color: white;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
 }
 
-tr:nth-child(even) {
-    background-color: var(--light-gray); /* Alternating row colors */
+table th,
+table td {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
 }
 
-tr:hover {
-    background-color: var(--medium-gray); /* Hover highlight */
+table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3; /* Alternating row color */
+}
+
+table tbody tr:last-of-type {
+    border-bottom: 2px solid var(--primary-color);
+}
+
+table tbody tr:hover {
+    background-color: #e0f2f7; /* Hover highlight */
     transition: background-color 0.3s ease;
 }
 
-/* Image Styling */
 img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 2rem auto;
-    border-radius: var(--border-radius-md); /* Rounded corners */
-    box-shadow: 0 6px 20px var(--shadow-color); /* Shadow */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+    margin: 30px auto;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 8px 20px var(--shadow-color); /* Shadow */
+    transition: transform 0.4s ease-in-out; /* Hover zoom transition */
+    background-color: #fff; /* Ensure white background for images with transparency */
+    padding: 5px;
+    border: 1px solid var(--border-color);
 }
 
 img:hover {
-    transform: scale(1.02); /* Hover zoom effect */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transform: scale(1.03); /* Hover zoom */
 }
 
-/* Link Styling */
 a {
     color: var(--primary-color);
     text-decoration: none;
@@ -158,61 +154,101 @@ a {
 }
 
 a:hover {
-    color: var(--secondary-color);
+    color: var(--hover-color);
     text-decoration: underline;
 }
 
-ol {
-    padding-left: 25px;
-    margin-bottom: 1.5em;
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    color: var(--light-text-color);
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9em;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .report-container {
-        padding: 1.5rem;
-        margin: 1rem 0.5rem;
+    body {
+        padding: 15px;
     }
 
     h1 {
-        font-size: 2rem;
+        font-size: 2em;
     }
 
     h2 {
-        font-size: 1.5rem;
+        font-size: 1.6em;
     }
 
     h3 {
-        font-size: 1.2rem;
+        font-size: 1.3em;
     }
 
-    th, td {
-        padding: 10px 12px;
-        font-size: 0.85em;
+    section {
+        padding: 20px;
+        margin-bottom: 20px;
     }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    table thead {
+        display: none; /* Hide table headers (but not their content) */
+    }
+
+    table tr {
+        margin-bottom: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        box-shadow: 0 1px 3px var(--shadow-color);
+    }
+
+    table td {
+        border: none;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        padding-left: 50%; /* Make space for the label */
+        text-align: right;
+    }
+
+    table td:last-child {
+        border-bottom: 0;
+    }
+
+    table td::before {
+        /* This is where the magic happens! */
+        content: attr(data-label); /* Use data-label for content */
+        position: absolute;
+        left: 15px;
+        width: calc(50% - 30px);
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+    
+    /* Add data-label attributes to your HTML <td> elements for this to work effectively */
+    /* Example: <td data-label="कंपनी का नाम">Dixon Technologies</td> */
 }
 
 @media (max-width: 480px) {
-    .report-container {
-        padding: 1rem;
-        margin: 0.5rem;
-        border-radius: var(--border-radius-sm);
-    }
-
     h1 {
-        font-size: 1.8rem;
+        font-size: 1.5em;
     }
-
     h2 {
-        font-size: 1.3rem;
+        font-size: 1.3em;
     }
-
     h3 {
-        font-size: 1.1rem;
+        font-size: 1.1em;
     }
-
-    img {
-        border-radius: var(--border-radius-sm);
+    body {
+        padding: 10px;
+    }
+    section {
+        padding: 15px;
     }
 }
 ```
