@@ -1,1 +1,323 @@
-<<<policy name - "बड़े पैमाने पर इलेक्ट्रॉनिक्स विनिर्माण के लिए उत्पादन लिंक्ड प्रोत्साहन (PLI) योजना", company name - "सिर्मा एसजीएस टेक्नोलॉजी लिमिटेड", company product name - "प्रिंटेड सर्किट बोर्ड असेंबली (PCBA), RFID उत्पाद">>>
+<<<policy name - "बृहत् पैमाने पर इलेक्ट्रॉनिक्स विनिर्माण के लिए उत्पादन-लिंक्ड प्रोत्साहन (पीएलआई) योजना", company name - "डिक्सन टेक्नोलॉजीज (इंडिया) लिमिटेड", company product name - "मोबाइल फोन, एलईडी टीवी">>>
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #2c3e50; /* Dark blue for headings */
+    --secondary-color: #3498db; /* Lighter blue for accents */
+    --text-color: #333; /* Dark gray for body text */
+    --light-text-color: #555;
+    --background-light: #f4f7f6; /* Soft light background */
+    --card-background: #ffffff;
+    --border-color: #e0e0e0;
+    --hover-color: #2980b9;
+    --table-header-bg: #eaf1f8;
+    --table-alt-row: #f9f9f9;
+}
+
+/* Base Styles */
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, var(--background-light) 0%, #e0e6eb 100%);
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: var(--card-background);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    font-family: 'Merriweather', serif;
+    color: var(--primary-color);
+    font-size: 2.8em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--secondary-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* Main Content Area */
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Section Styling (Cards) */
+section {
+    background-color: var(--card-background);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-color);
+}
+
+/* Headings */
+h2 {
+    font-family: 'Merriweather', serif;
+    color: var(--secondary-color);
+    font-size: 2.2em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-family: 'Merriweather', serif;
+    color: var(--primary-color);
+    font-size: 1.6em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+h4 {
+    font-family: 'Inter', sans-serif;
+    color: var(--light-text-color);
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Paragraphs and Lists */
+p {
+    margin-bottom: 1em;
+    line-height: 1.7;
+}
+
+ul, ol {
+    margin-bottom: 1em;
+    padding-left: 25px;
+}
+
+ul li, ol li {
+    margin-bottom: 0.5em;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 30px auto; /* Center images and add vertical spacing */
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    overflow: hidden; /* Ensures rounded corners apply to content */
+}
+
+table thead tr {
+    background-color: var(--table-header-bg);
+    color: var(--primary-color);
+    text-align: left;
+    font-weight: bold;
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+}
+
+table tbody tr:nth-of-type(even) {
+    background-color: var(--table-alt-row);
+}
+
+table tbody tr:last-of-type {
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+table tbody tr:hover {
+    background-color: #e0f2f7; /* Lighter hover for rows */
+    cursor: pointer;
+}
+
+/* Links */
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--hover-color);
+    text-decoration: underline;
+}
+
+/* Citations */
+.citations {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9em;
+    color: var(--light-text-color);
+}
+
+.citations h3 {
+    font-size: 1.4em;
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.citations ol {
+    padding-left: 20px;
+}
+
+.citations li {
+    margin-bottom: 8px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    h3 {
+        font-size: 1.4em;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    table {
+        font-size: 0.8em;
+    }
+
+    table th,
+    table td {
+        padding: 10px;
+    }
+
+    .company-table, .projections-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .company-table thead, .projections-table thead {
+        display: none; /* Hide table header on small screens */
+    }
+
+    .company-table tbody tr, .projections-table tbody tr {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .company-table td, .projections-table td {
+        display: block;
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        border: none;
+        border-bottom: 1px solid var(--table-alt-row);
+    }
+
+    .company-table td::before, .projections-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: calc(50% - 20px);
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: var(--primary-color);
+    }
+
+    /* Specific labels for company table */
+    .company-table tbody tr td:nth-child(1)::before { content: "कंपनी का नाम"; }
+    .company-table tbody tr td:nth-child(2)::before { content: "टिकर"; }
+    .company-table tbody tr td:nth-child(3)::before { content: "सेक्टर"; }
+
+    /* Specific labels for projections table */
+    .projections-table tbody tr td:nth-child(1)::before { content: "मापदंड"; }
+    .projections-table tbody tr td:nth-child(2)::before { content: "2030 अनुमान"; }
+    .projections-table tbody tr td:nth-child(3)::before { content: "आधार और धारणाएं"; }
+
+    /* For lists within table cells on mobile */
+    .projections-table td ul, .projections-table td ol {
+        padding-left: 0;
+        list-style: none;
+    }
+
+    .projections-table td li {
+        margin-bottom: 5px;
+    }
+}
+
+/* Ensure data-label is present for responsive tables */
+.company-table td:nth-child(1)::before { content: "कंपनी का नाम:"; data-label: "कंपनी का नाम:"; }
+.company-table td:nth-child(2)::before { content: "टिकर:"; data-label: "टिकर:"; }
+.company-table td:nth-child(3)::before { content: "सेक्टर:"; data-label: "सेक्टर:"; }
+
+.projections-table td:nth-child(1)::before { content: "मापदंड:"; data-label: "मापदंड:"; }
+.projections-table td:nth-child(2)::before { content: "2030 अनुमान:"; data-label: "2030 अनुमान:"; }
+.projections-table td:nth-child(3)::before { content: "आधार और धारणाएं:"; data-label: "आधार और धारणाएं:"; }
+```
